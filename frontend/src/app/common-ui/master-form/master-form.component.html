@@ -1,0 +1,25 @@
+<div class="border p-4 bg-gray-50 rounded">
+  <h3 class="font-semibold mb-2">{{ editingId ? 'Редактировать Master' : 'Создать Master' }}</h3>
+  <div class="flex flex-wrap gap-2 mb-3">
+    <input
+      type="text"
+      placeholder="Номер"
+      class="border p-2 rounded w-40"
+      [(ngModel)]="master.number"
+    />
+    <input type="date" class="border p-2 rounded w-40" [(ngModel)]="master.date" />
+    <input
+      type="text"
+      placeholder="Примечание"
+      class="border p-2 rounded w-64"
+      [(ngModel)]="master.note"
+    />
+  </div>
+
+  <button class="bg-green-600 text-white px-3 py-1 rounded mr-2" (click)="save()">
+    {{ editingId ? 'Сохранить' : 'Создать' }}
+  </button>
+  <button *ngIf="editingId" class="bg-gray-500 text-white px-3 py-1 rounded" (click)="reset()">
+    Отмена
+  </button>
+</div>

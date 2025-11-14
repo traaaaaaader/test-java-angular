@@ -1,0 +1,23 @@
+<div class="border p-4 bg-gray-50 rounded mt-4">
+  <h4 class="font-semibold mb-2">{{ editingId ? 'Редактировать деталь' : 'Добавить деталь' }}</h4>
+  <div class="flex gap-2 items-center">
+    <input
+      type="text"
+      placeholder="Название детали"
+      class="border p-2 rounded w-64"
+      [(ngModel)]="detail.name"
+    />
+    <input
+      type="number"
+      placeholder="Количество"
+      class="border p-2 rounded w-32"
+      [(ngModel)]="detail.amount"
+    />
+    <button class="bg-blue-600 text-white px-3 py-1 rounded" (click)="addDetail()">
+      {{ editingId ? 'Сохранить' : 'Добавить' }}
+    </button>
+    <button *ngIf="editingId" class="bg-gray-500 text-white px-3 py-1 rounded" (click)="reset()">
+      Отмена
+    </button>
+  </div>
+</div>
